@@ -1,0 +1,61 @@
+{
+  "master": {
+    "catagories": {
+      "Men": [
+        "Casual",
+        "Sports",
+        "Formal",
+        "Standard",
+        "T-Shirts",
+        "Shirts",
+        "Jeans",
+        "Trousers",
+        "Sleep Wear",
+        "Sandals",
+        "Loafers"
+      ],/*
+      "Women": [
+        "Kurta & Kurti",
+        "Trousers",
+        "Casual",
+        "Sports",
+        "Formal",
+        "Sarees",
+        "Loafers",
+        "Sleep Wear",
+        "Jeans",
+        "T-Shirts",
+        "Jackets",
+        "Tops",
+        "Shoes",
+        "Sandals",
+        "Rings",
+        "Earrings",
+        "Jewellery Sets",
+        "Lockets",
+        "Make Up",
+        "Hair Care",
+        "Perfumes",
+        "Skin Care",
+        "Sunglases",
+        "Nail",
+        "Bags"
+      ],*/
+      "Kids": [
+        "Casual",
+        "Sports",
+        "Formal",
+        "Standard",
+        "T-Shirts",
+        "Shirts",
+        "Jeans",
+        "Trousers",
+        "Sleep Wear",
+        "Sandals",
+        "Loafers"
+      ]/*,
+      "Medicines": [],
+      "Grocery": []*/
+    }
+  }
+}
