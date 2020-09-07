@@ -37,4 +37,13 @@ public class MasterRestController {
 		}
 		return null;
 	}
+	@GetMapping("/adminHeader")
+	public JSONObject adminHeader(){
+		try {
+			return service.adminHeader();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

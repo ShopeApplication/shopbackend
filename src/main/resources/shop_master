@@ -57,5 +57,12 @@
       "Medicines": [],
       "Grocery": []*/
     }
+  },
+  "admin": {
+    "Distributer": [
+      "List Distributer",
+      "Distributer Products",
+      "Distributer Orders"
+    ]
   }
 }

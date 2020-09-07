@@ -57,5 +57,12 @@ public class MasterServiceImpl implements MasterService {
 		JSONObject json = JSONObject.fromObject(jsondata);
 		return json.getJSONObject("master").getJSONObject("catagories");
 	}
+	
+	@Override
+	public JSONObject adminHeader() throws Exception {
+		String jsondata = getJSONdataStringFormate();
+		JSONObject json = JSONObject.fromObject(jsondata);
+		return json.getJSONObject("admin");
+	}
 
 }
