@@ -75,5 +75,14 @@
     "Transaction" : [
        "Payments"
     ]
+  },
+  "distributer" :{
+    "Product":[
+      "Create Product"
+    ],
+    "Order":[
+       "Orders",
+       "Etc"
+    ]
   }
 }

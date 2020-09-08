@@ -8,7 +8,7 @@ public interface MasterService {
 
 	JSONObject findCatagories() throws Exception;
 	
-	JSONObject adminHeader() throws Exception;
+	JSONObject adminHeader(String role) throws Exception;
 
 
 }

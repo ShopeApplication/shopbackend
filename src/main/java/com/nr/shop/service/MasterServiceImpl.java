@@ -59,10 +59,10 @@ public class MasterServiceImpl implements MasterService {
 	}
 	
 	@Override
-	public JSONObject adminHeader() throws Exception {
+	public JSONObject adminHeader(String userrole) throws Exception {
 		String jsondata = getJSONdataStringFormate();
 		JSONObject json = JSONObject.fromObject(jsondata);
-		return json.getJSONObject("admin");
+		return json.getJSONObject(userrole);
 	}
 
 }
