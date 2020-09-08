@@ -60,9 +60,20 @@
   },
   "admin": {
     "Distributer": [
+      "Create Distributer",
       "List Distributer",
-      "Distributer Products",
-      "Distributer Orders"
+      "Inactive Distributer",
+      "Products",
+      "Orders"
+    ],
+    "Users": [
+      "List Users",
+      "Inactive Users",
+      "Orders",
+      "User Comments"
+    ],
+    "Transaction" : [
+       "Payments"
     ]
   }
 }
