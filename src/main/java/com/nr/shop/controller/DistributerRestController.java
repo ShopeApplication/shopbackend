@@ -14,35 +14,56 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nr.shop.entity.MaleProduct;
 import com.nr.shop.service.MaleProductService;
+import com.nr.shop.service.MasterService;
+
+import net.sf.json.JSONObject;
 
 @CrossOrigin(origins = {"${ui.url}"},maxAge = 3600)
 @RestController
-@RequestMapping(value = "/male")
-public class MaleProductRestController {
+@RequestMapping("/distributer")
+public class DistributerRestController {
+	
+	//This API will be called only by user having DISTRIBUTER role
 	
 	@Autowired
-	private MaleProductService service;
+	MasterService masterservice;
 	
-	@GetMapping(value = "/test")
-	public String test() {
-		return "HAR HAR MAHADEV";
+	@Autowired
+	private MaleProductService maleproductservice;
+	
+	//Master
+	@GetMapping("/header")
+	public JSONObject header(){
+		try {
+			/*
+			 * UserDetails
+			 * userdetails=userDetailService.loadUserByUsername(JwtToken.extractUsernane(jwt
+			 * )); String role=userdetails.getAuthorities().stream().findFirst().toString();
+			 * role=role.substring(9, role.length()-1);
+			 */
+			return masterservice.adminHeader("distributer");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
+	//Male
 	@PostMapping(value = "/save")
 	public MaleProduct create(@RequestBody MaleProduct maleproduct) {
-		return service.create(maleproduct);
+		return maleproductservice.create(maleproduct);
 	}
 	
 	@GetMapping(value = "/findAll/{page}/{size}")
 	@Cacheable(value = "maleProducList")
 	public List<MaleProduct> findAll(@PathVariable int page,@PathVariable int size) {
-		return service.findAll(page, size);
+		return maleproductservice.findAll(page, size);
 	}
 	
 	@GetMapping(value = "/find/{productId}")
 	@Cacheable(value = "maleProducList",key = "#productId")
 	public MaleProduct find(@PathVariable int productId) {
-		return service.find(productId);
+		return maleproductservice.find(productId);
 	}
 
 }
