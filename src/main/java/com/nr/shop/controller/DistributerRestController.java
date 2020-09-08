@@ -35,12 +35,6 @@ public class DistributerRestController {
 	@GetMapping("/header")
 	public JSONObject header(){
 		try {
-			/*
-			 * UserDetails
-			 * userdetails=userDetailService.loadUserByUsername(JwtToken.extractUsernane(jwt
-			 * )); String role=userdetails.getAuthorities().stream().findFirst().toString();
-			 * role=role.substring(9, role.length()-1);
-			 */
 			return masterservice.adminHeader("distributer");
 		} catch (Exception e) {
 			e.printStackTrace();
