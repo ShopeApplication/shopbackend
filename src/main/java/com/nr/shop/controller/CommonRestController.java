@@ -159,6 +159,13 @@ public class CommonRestController {
 	
 	@PostMapping(value="/saveUserMessage")
     public int saveUserMessage(@ModelAttribute UserMessage user) {
+		/*
+		 * status=0 // Inactive Message
+		 * status=1 // Active Message
+		 * status=2 // Under progress
+		 * status=3 // Completed
+		 * */
+		user.setStatus(1);
     	return userMessageService.saveUserMessage(user);
     }
 }
