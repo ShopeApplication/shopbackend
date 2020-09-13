@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,9 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.nr.shop.dto.RequestBoby;
 import com.nr.shop.entity.MaleProduct;
 import com.nr.shop.entity.User;
+import com.nr.shop.entity.UserMessage;
 import com.nr.shop.service.CartService;
 import com.nr.shop.service.MaleProductService;
 import com.nr.shop.service.MasterService;
+import com.nr.shop.service.UserMessageService;
 import com.nr.shop.service.UserService;
 import com.nr.shop.utils.JwtToken;
 import com.nr.shop.utils.ShopBCryptPE;
@@ -55,6 +58,9 @@ public class CommonRestController {
 	
 	@Autowired
 	private UserService userservice;
+	
+	@Autowired
+	private UserMessageService userMessageService;
 	
 	@PostMapping("/authenticate")
 	public ResponseEntity<String> authenticate(@RequestBody RequestBoby rb) throws Exception {
@@ -150,6 +156,9 @@ public class CommonRestController {
 	public MaleProduct findMaleProduct(@PathVariable int productId) {
 		return maleproductservice.find(productId);
 	}
-		
-
+	
+	@PostMapping(value="/saveUserMessage")
+    public int saveUserMessage(@ModelAttribute UserMessage user) {
+    	return userMessageService.saveUserMessage(user);
+    }
 }
