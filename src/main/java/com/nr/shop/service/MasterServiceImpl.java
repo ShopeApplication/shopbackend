@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 
 import org.springframework.stereotype.Service;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 
@@ -63,6 +64,13 @@ public class MasterServiceImpl implements MasterService {
 		String jsondata = getJSONdataStringFormate();
 		JSONObject json = JSONObject.fromObject(jsondata);
 		return json.getJSONObject(userrole);
+	}
+
+	@Override
+	public JSONArray findCatagories(String type) throws Exception {
+		String jsondata = getJSONdataStringFormate();
+		JSONObject json = JSONObject.fromObject(jsondata);
+		return json.getJSONObject("master").getJSONObject("catagories").getJSONArray(type);
 	}
 
 }

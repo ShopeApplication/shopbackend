@@ -28,24 +28,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		auth.userDetailsService(userDetailsService);
 	}
 	
-	/*
-	 * @Override protected void configure(HttpSecurity http) throws Exception {
-	 * http.cors().and() .csrf().disable()
-	 * .authorizeRequests().antMatchers("/master/findAll","/master/findCatagories",
-	 * "/user/createUser","/male/findAll/**","/male/find/**","/cart/**",
-	 * "/user/authenticate/**").permitAll()
-	 * .antMatchers("/master/adminHeader").hasAnyAuthority("ADMIN","DISTRIBUTER")
-	 * .anyRequest().authenticated()
-	 * .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.
-	 * STATELESS); http.addFilterBefore(JwtRequestFilter,
-	 * UsernamePasswordAuthenticationFilter.class); }
-	 */
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.cors().and()
 		.csrf().disable()
-	    .authorizeRequests().antMatchers("/common/**").permitAll()
+	    .authorizeRequests().antMatchers("/common/**","/v2/api-docs", "/swagger-resources/configuration/ui", "/swagger-resources", "/swagger-resources/configuration/security", "/swagger-ui.html", "/webjars/**").permitAll()
 	                        .antMatchers("/user/**").hasAuthority("USER")
 	                        .antMatchers("/distributer/**").hasAuthority("DISTRIBUTER")
 	                        .antMatchers("/admin/**").hasAuthority("ADMIN")

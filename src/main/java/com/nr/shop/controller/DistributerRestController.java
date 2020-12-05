@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.nr.shop.dto.ProductDTO;
 import com.nr.shop.entity.MaleProduct;
 import com.nr.shop.service.MaleProductService;
 import com.nr.shop.service.MasterService;
@@ -39,6 +43,12 @@ public class DistributerRestController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+	
+	//Product
+	@PostMapping(value = "/saveAnyProduct",consumes=MediaType.MULTIPART_FORM_DATA_VALUE)
+	public MaleProduct saveAnyProduct(@RequestBody ProductDTO maleproduct,@RequestParam("file") MultipartFile file) {
 		return null;
 	}
 	

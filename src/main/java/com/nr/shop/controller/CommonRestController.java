@@ -32,6 +32,7 @@ import com.nr.shop.utils.JwtToken;
 import com.nr.shop.utils.ShopBCryptPE;
 import com.nr.shop.utils.ShopRegex;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @CrossOrigin(origins = {"${ui.url}"},maxAge = 3600)
@@ -132,6 +133,16 @@ public class CommonRestController {
 	public JSONObject findCatagories(){
 		try {
 			return masterservice.findCatagories();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@GetMapping("/findCatagories/{type}")//type is male,female,kid etc
+	public JSONArray findCatagories(@PathVariable("type") String type){
+		try {
+			return masterservice.findCatagories(type);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
