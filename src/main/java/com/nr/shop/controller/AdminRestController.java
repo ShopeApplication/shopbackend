@@ -51,7 +51,7 @@ public class AdminRestController {
 		   } 
 		 }else{
 		    throw Exception("Invalid");
-		 }
+		 }////////////////////////
 		 */
 		user.setStatus(1);
 		user.setRole("ADMIN");
